@@ -25,8 +25,10 @@ struct TanpopoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView()  // Display ContentView, which contains the TabView
         }
         .modelContainer(sharedModelContainer)
     }
 }
+
+
