@@ -1,8 +1,10 @@
 import SwiftUI
+import AuthenticationServices
+
 
 struct SettingsView : View {
-    @State private var aniListService = AniListService()
-    
+    @StateObject private var viewModel = SignInViewModel()
+
     var body : some View {
         NavigationView {
             VStack {
@@ -20,11 +22,11 @@ struct SettingsView : View {
                         .padding(.trailing, 25)
                 }
                 .padding(.top)
-
+                
                 // Settings Form Section
                 Form {
                     Section(header : Text("About")) {
-                        Button(action : login) {
+                        Button(action : viewModel.signIn) {
                             Text("Login")
                         }
                     }
@@ -32,15 +34,12 @@ struct SettingsView : View {
             }
             
         }
-        
     }
-
-    func login() {
-       if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
-           aniListService.getAuthorizationCode(from : rootViewController)
-       }
-   }
+    
 }
+
+
+
 
 struct SettingsView_Previews : PreviewProvider {
     static var previews : some View {

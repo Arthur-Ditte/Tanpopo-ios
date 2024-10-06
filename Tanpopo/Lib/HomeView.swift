@@ -37,12 +37,9 @@ struct HomeView: View {
                         }
                         .padding([.leading, .top], 16)
 
-                        Spacer()
                     }
                 }
                 .frame(height: 50) // Fixed height for the menu area
-
-                Spacer()
 
                 // Display the selected view
                 selectedView()
